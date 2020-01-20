@@ -1,9 +1,8 @@
 window.addEventListener('load', function () {
-  class Hello {
-    render() {
-      return React.createElement('div', null, 'class component');
-    }
-  }
-  const helloWorld = React.createElement(Hello, null, null);
+  const Hello = ({name}) => {
+    return React.createElement('div', null, `Hello ${name}`);
+  };
+
+  const helloWorld = React.createElement(Hello, { name: 'World' }, null);
   ReactDOM.render(helloWorld, document.getElementById('root'));
 })

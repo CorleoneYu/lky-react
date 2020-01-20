@@ -5,7 +5,7 @@ function createElement(parentEle, props, ...children) {
   }
 
   if (typeof parentEle === 'function') {
-    return parentEle();
+    return parentEle(props);
   }
 
   const parentElement = document.createElement(parentEle);
