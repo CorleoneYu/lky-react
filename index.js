@@ -1,14 +1,14 @@
 window.addEventListener('load', function () {
-  class Hello extends React.Component {
+  class Button extends React.Component {
     constructor(props) {
       super(props);
     }
 
     render() {
-      return React.createElement('div', null, `Hello ${this.props.name}`);
+      return React.createElement('button', { onClick: this.props.onClick }, `click Me`);
     }
   }
+  const myBtn = React.createElement(Button, {onClick: () => alert('click me')}, null);
 
-  const helloWorld = React.createElement(Hello, { name: 'World' }, null);
-  ReactDOM.render(helloWorld, document.getElementById('root'));
+  ReactDOM.render(myBtn, document.getElementById('root'));
 })
