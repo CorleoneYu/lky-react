@@ -1,4 +1,9 @@
 function createElement(parentEle, props, ...children) {
+  if (typeof parentEle === 'function' && /^\s*class\s+/.test(parentEle.toString())) {
+    const component = new parentEle();
+    return component.render();
+  }
+
   if (typeof parentEle === 'function') {
     return parentEle();
   }
