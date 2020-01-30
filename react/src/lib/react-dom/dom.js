@@ -1,4 +1,4 @@
-function setAttribute(dom, key, value) {
+export function setAttribute(dom, key, value) {
   if (key === 'className') key = 'class';
 
   // 如果属性名是 onXXX 则是一个事件监听方法
@@ -34,25 +34,4 @@ function setAttribute(dom, key, value) {
   } else {
     dom.removeAttribute(key);
   }
-}
-
-export default function render(vnode, container) {
-  if (typeof vnode === 'string') {
-    const textNode = document.createTextNode(vnode);
-    return container.appendChild(textNode);
-  }
-
-  const dom = document.createElement(vnode.tag);
-
-  if (vnode.attrs) {
-    Object.keys(vnode.attrs).forEach(key => {
-      const value = vnode.attrs[key];
-      setAttribute(dom, key, value);
-    });
-  }
-
-  // 递归 render
-  vnode.children.forEach(child => render(child, dom));
-
-  return container.appendChild(dom)
 }

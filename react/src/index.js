@@ -1,19 +1,10 @@
-import React from './react'
-import ReactDOM from './react-dom';
-
-function tick() {
-  const element = (
-    <div>
-      <h1>Hello World!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}</h2>
-    </div>
-  );
-  ReactDOM.render(
-    element,
-    document.getElementById('root'),
-  );
-}
+import App from './app';
+import ReactDOM from './lib/react-dom';
+import React from './lib/react';
 
 window.addEventListener('load', function () { 
-  this.setInterval(tick, 1000);
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root'),
+  );
 });
