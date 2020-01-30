@@ -1,4 +1,4 @@
-import React from '../lib/react';
+import React from "../lib/react";
 
 export default class Counter extends React.Component {
   constructor(props) {
@@ -9,25 +9,30 @@ export default class Counter extends React.Component {
   }
 
   componentWillMount() {
-    console.log('Counter componentWillMount');
+    console.log("Counter componentWillMount");
   }
 
   componentDidMount() {
-    console.log('Counter componentDidMount');
+    console.log("Counter componentDidMount");
   }
 
   componentWillUpdate() {
-    console.log('Counter componentWillUpdate');
+    console.log("Counter componentWillUpdate");
   }
 
   componentDidUpdate() {
-    console.log('Counter componentDidUpdate');
+    console.log("Counter componentDidUpdate");
   }
 
   handleClick() {
-    this.setState({
-      num: this.state.num + 1,
-    });
+    for (let i = 0; i < 100; i++) {
+      this.setState(prevState => {
+        console.log(prevState.num);
+        return {
+          num: prevState.num + 1
+        };
+      });
+    }
   }
 
   render() {
@@ -36,6 +41,6 @@ export default class Counter extends React.Component {
         <h1>number: {this.state.num}</h1>
         <button onClick={() => this.handleClick()}>add</button>
       </div>
-    )
+    );
   }
 }
